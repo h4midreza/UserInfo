@@ -7,6 +7,7 @@ import com.example.userinfo.data.local.UserInfoDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -16,11 +17,13 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideDatabase(appContext: Context): UserInfoDatabase {
+    fun provideDatabase(
+        @ApplicationContext context: Context
+    ): UserInfoDatabase {
         return Room.databaseBuilder(
-            appContext,
+            context,
             UserInfoDatabase::class.java,
-            "user_info_db"
+            "user_info_database"
         ).build()
     }
 

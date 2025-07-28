@@ -1,10 +1,10 @@
 package com.example.userinfo.presentation.navigation
 
+import UserInfoScreen
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.userinfo.presentation.UserInfoScreen
 import com.example.utils.Constants.USER_LIST
 
 
