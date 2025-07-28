@@ -11,9 +11,10 @@ import com.example.userinfo.data.local.UserInfoDatabase
 import com.example.userinfo.data.local.UserInfoEntity
 import retrofit2.HttpException
 import java.io.IOException
+import javax.inject.Inject
 
 @OptIn(ExperimentalPagingApi::class)
-class UserInfoRemoteMediator(
+class UserInfoRemoteMediator @Inject constructor(
     private val api: UserInfoApi,
     private val database: UserInfoDatabase
 ) : RemoteMediator<Int, UserInfoEntity>() {

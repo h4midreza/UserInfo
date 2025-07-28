@@ -8,8 +8,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -21,29 +19,32 @@ import coil.compose.AsyncImage
 import com.example.userinfo.domain.model.UserInfo
 
 @Composable
-fun UserItem(user: UserInfo) {
-    Card(
-        modifier = Modifier
+fun UserItem(user: UserInfo, modifier: Modifier = Modifier) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = modifier
             .fillMaxWidth()
-            .padding(8.dp),
-        elevation = CardDefaults.cardElevation(4.dp)
+            .padding(12.dp)
     ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(8.dp)
-        ) {
-            AsyncImage(
-                model = user.image,
-                contentDescription = user.name,
-                modifier = Modifier
-                    .size(64.dp)
-                    .clip(CircleShape)
+        AsyncImage(
+            model = user.image,
+            contentDescription = user.name,
+            modifier = Modifier
+                .size(56.dp)
+                .clip(CircleShape)
+        )
+        Spacer(modifier = Modifier.width(16.dp))
+        Column {
+            Text(
+                text = user.name,
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.onSurface
             )
-            Spacer(modifier = Modifier.width(16.dp))
-            Column {
-                Text(text = user.name, style = MaterialTheme.typography.titleMedium)
-                Text(text = user.status, style = MaterialTheme.typography.bodyMedium)
-            }
+            Text(
+                text = user.status,
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
         }
     }
 }

@@ -11,7 +11,7 @@ data class UserInfoEntity(
     val status: String,
     val image: String
 ) {
-    fun toUserInfo(): UserInfo = UserInfo(id, name, status, image)
+    fun toUserInfo(): UserInfo = UserInfo(id, name, image, status)
 
     companion object {
         fun fromUserInfo(userInfo: UserInfo): UserInfoEntity =
