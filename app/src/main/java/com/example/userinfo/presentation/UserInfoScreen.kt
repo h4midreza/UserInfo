@@ -33,8 +33,8 @@ fun UserInfoScreen(viewModel: UserInfoViewModel = hiltViewModel()) {
         is UserInfoUiState.Success -> {
             val users = (uiState as UserInfoUiState.Success).users
             LazyColumn(modifier = Modifier.fillMaxSize()) {
-                items(users) { user ->
-                    UserItem(user = user)
+                items(users.size) { user ->
+                    UserItem(user = users[user])
                 }
             }
         }
